@@ -1,0 +1,172 @@
+
+  /order:
+    get:
+     summary: Get all orders
+     tags: [order]
+     responses:
+       200:
+        schema:
+          $ref: '#/components/schemas/order'
+ 
+    post:
+      summary: Create order
+      tags: [order]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/order'
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order'
+ 
+  /order/{id}:
+    get:
+      summary: Get order by id
+      tags: [order]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order'
+ 
+    put:
+      summary: Edit order
+      tags: [order]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order'
+      requestBody:
+        content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/order'
+ 
+    delete:
+      summary: Delete order
+      tags: [order]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order'
+
+  /user:
+    get:
+     summary: Get all users
+     tags: [user]
+     responses:
+       200:
+        schema:
+          $ref: '#/components/schemas/user'
+ 
+    post:
+      summary: Create user
+      tags: [user]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+ 
+  /user/{id}:
+    get:
+      summary: Get user by id
+      tags: [user]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+ 
+    put:
+      summary: Edit user
+      tags: [user]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+      requestBody:
+        content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/user'
+ 
+    delete:
+      summary: Delete user
+      tags: [user]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+
+  components:
+    schemas:
+  
+      order:
+        type: object
+        properties:
+      
+          id:
+            type: string
+          title:
+            type: string
+          items:
+            type: number
+          user:
+            type: string
+      user:
+        type: object
+        properties:
+      
+          id:
+            type: number
+          name:
+            type: string
+          email:
+            type: string
+          gender:
+            type: string
+          age:
+            type: number
+          password:
+            type: string
+          promocode:
+            type: string
